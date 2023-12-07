@@ -28,4 +28,9 @@ public class PaymentRequest {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "UserId: '" + this.userId + "', ItemId: '" + this.itemId + "', Discount: '" + this.discount + "'";
+    }
 }
