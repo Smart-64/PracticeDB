@@ -3,6 +3,7 @@ package org.example.Controller;
 import org.example.Utils.PaymentRequest;
 import org.example.Utils.BaseResponse;
 
+import org.example.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,9 @@ public class PaymentController {
     private static final String ERROR_STATUS = "error";
     private static final int CODE_SUCCESS = 100;
     private static final int AUTH_FAILURE = 102;
-    @Value("${web.name}")
+
+    private ClientRepository clientRepository;
+    @Value("${web.Name}")
     private String name;
     @GetMapping("/status")
     public BaseResponse showStatus() {
