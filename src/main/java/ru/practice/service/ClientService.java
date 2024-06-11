@@ -1,4 +1,6 @@
-package org.example.Utils;
+package ru.practice.service;
+
+import ru.practice.Utils.Client;
 
 import java.util.List;
 

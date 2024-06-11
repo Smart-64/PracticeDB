@@ -1,4 +1,4 @@
-import org.example.Utils.PaymentRequest;
+import ru.practice.Utils.PaymentRequest;
 import org.junit.Assert;
 import org.junit.Test;
 

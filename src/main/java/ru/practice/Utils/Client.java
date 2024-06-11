@@ -1,4 +1,4 @@
-package org.example.Utils;
+package ru.practice.Utils;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

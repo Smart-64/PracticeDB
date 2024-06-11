@@ -1,8 +1,10 @@
-package org.example.Utils;
+package ru.practice.service;
 
 
-import org.example.repository.ClientRepository;
+import ru.practice.Utils.Client;
+import ru.practice.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import ru.practice.service.ClientService;
 
 import java.util.List;
 public class ClientServiceImpl implements ClientService {

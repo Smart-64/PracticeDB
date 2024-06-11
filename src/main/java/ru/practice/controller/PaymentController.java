@@ -1,9 +1,9 @@
-package org.example.Controller;
+package ru.practice.controller;
 
-import org.example.Utils.PaymentRequest;
-import org.example.Utils.BaseResponse;
+import ru.practice.Utils.PaymentRequest;
+import ru.practice.Utils.BaseResponse;
 
-import org.example.repository.ClientRepository;
+import ru.practice.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

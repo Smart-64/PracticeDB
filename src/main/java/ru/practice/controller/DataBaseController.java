@@ -1,13 +1,13 @@
-package org.example.Controller;
+package ru.practice.controller;
 
-import org.example.Utils.Client;
-import org.example.Utils.ClientServiceImpl;
+import ru.practice.Utils.Client;
+import ru.practice.service.ClientServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class DbController {
+public class DataBaseController {
     ClientServiceImpl clientService;
 
 
