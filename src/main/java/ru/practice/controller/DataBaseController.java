@@ -1,6 +1,6 @@
 package ru.practice.controller;
 
-import ru.practice.Utils.Client;
+import ru.practice.util.Client;
 import ru.practice.service.ClientServiceImpl;
 import org.springframework.web.bind.annotation.*;
 

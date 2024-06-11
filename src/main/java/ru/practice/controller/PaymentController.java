@@ -1,7 +1,7 @@
 package ru.practice.controller;
 
-import ru.practice.Utils.PaymentRequest;
-import ru.practice.Utils.BaseResponse;
+import ru.practice.util.PaymentRequest;
+import ru.practice.util.BaseResponse;
 
 import ru.practice.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Value;

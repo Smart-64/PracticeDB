@@ -1,6 +1,6 @@
 package ru.practice.service;
 
-import ru.practice.Utils.Client;
+import ru.practice.util.Client;
 
 import java.util.List;
 

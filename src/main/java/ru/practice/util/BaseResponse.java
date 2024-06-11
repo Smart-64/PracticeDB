@@ -1,4 +1,4 @@
-package ru.practice.Utils;
+package ru.practice.util;
 
 public class BaseResponse {
     private final String status;

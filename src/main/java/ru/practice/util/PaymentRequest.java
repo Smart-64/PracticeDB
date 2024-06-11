@@ -1,4 +1,4 @@
-package ru.practice.Utils;
+package ru.practice.util;
 
 public class PaymentRequest {
     private int userId;
