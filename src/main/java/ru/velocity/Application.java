@@ -1,4 +1,4 @@
-package org.example;
+package ru.velocity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
