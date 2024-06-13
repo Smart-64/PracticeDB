@@ -5,6 +5,10 @@ public class TransportVehicle {
     private int id_TransportVehicle;
     private int velocity;
 
+    public TransportVehicle() {
+
+    }
+
     public TransportVehicle(int id_TransportVehicle, int velocity) {
         this.id_TransportVehicle = id_TransportVehicle;
         this.velocity = velocity;
