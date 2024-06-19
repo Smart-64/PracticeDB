@@ -1,8 +1,11 @@
 package ru.practice.util;
 
 public class PaymentRequest {
+
     private int userId;
+
     private String itemId;
+
     private double discount;
 
     public String getItemId() {

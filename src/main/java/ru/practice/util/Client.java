@@ -1,24 +1,24 @@
 package ru.practice.util;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.Entity;
+//mport javax.persistence.Table;
+//import javax.persistence.Id;
+//import javax.persistence.Column;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 
-@Entity
-@Table(name = "clients")
+//@Entity
+//@Table(name = "clients")
 public class Client {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@Column(name = "id")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "mame")
+    //@Column(name = "mame")
     private String name;
-    @Column(name = "email")
+    //@Column(name = "email")
     private String email;
-    @Column(name = "phone")
+    //@Column(name = "phone")
     private String phone;
 
     public Integer getId() {
