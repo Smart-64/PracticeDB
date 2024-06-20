@@ -8,7 +8,7 @@ Content-Type: application/json
 {
   "name": "testName1",
   "email": "testEmail1",
-  "phone": "+7-111-11-11"
+  "phone": "+7 (111) 111-11-11)"
 }
 
 ###

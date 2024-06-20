@@ -3,7 +3,9 @@ package ru.practice.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.practice.repository.ClientRepository;
 import ru.practice.util.Client;
 
 import java.util.HashMap;
@@ -17,34 +19,35 @@ public class ClientServiceImpl implements ClientService {
 
     private final static Logger logger = LoggerFactory.getLogger(ClientServiceImpl.class);
 
-    private final static Map<Integer, Client> CLIENTS_MAP = new HashMap<>();
+    private final ClientRepository repository;
 
-    private final static AtomicInteger CLIENT_ID = new AtomicInteger();
+    @Autowired
+    public ClientServiceImpl(ClientRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public void create(Client client) {
-        Integer id = CLIENT_ID.incrementAndGet();
-        client.setId(id);
-        CLIENTS_MAP.put(id, client);
+        repository.save(client);
         logger.info("Create new client\n id: {}\n name: {}\n email: {}\n phone: {}",
                 client.getId(), client.getName(), client.getEmail(), client.getPhone());
     }
 
     @Override
     public List<Client> readAll() {
-        return CLIENTS_MAP.values().stream().collect(Collectors.toList());
+        return repository.findAll();
     }
 
     @Override
     public Client read(int id) {
-        return CLIENTS_MAP.getOrDefault(id, null);
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public boolean update(Client client, int id) {
-        if (CLIENTS_MAP.containsKey(id)) {
+        if (repository.existsById(id)) {
             client.setId(id);
-            CLIENTS_MAP.put(id, client);
+            repository.save(client);
             return true;
         }
         return false;
@@ -52,8 +55,8 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public boolean delete(int id) {
-        if (CLIENTS_MAP.containsKey(id)) {
-            CLIENTS_MAP.remove(id);
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
             return true;
         }
         return false;
