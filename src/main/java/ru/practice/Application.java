@@ -2,6 +2,7 @@ package ru.practice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import ru.practice.service.HackCatService;
 
 @SpringBootApplication
 public class Application {

@@ -63,4 +63,33 @@ public class GptTunnel {
         }
         System.out.println();
     }
+
+    @Test
+    public void test1() {;
+        AsyncProcessor processor = new AsyncProcessor();
+        System.out.println("test");
+        processor.process(result -> {
+            System.out.println("result: " + result);
+        });
+    }
+
+    interface CallBack {
+        void onComplete(String string);
+    }
+
+    class AsyncProcessor {
+        public void process(CallBack callBack) {
+            new Thread(() -> {
+                try {
+                    Thread.sleep(2000);
+                    System.out.println("woke up");
+                    callBack.onComplete("Complete!");
+                } catch (InterruptedException exception) {
+                    System.out.println(exception.getMessage());
+                    callBack.onComplete("Error and not complete!");
+                }
+
+            }).start();
+        }
+    }
 }
