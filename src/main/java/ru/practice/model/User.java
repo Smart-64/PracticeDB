@@ -1,9 +1,5 @@
 package ru.practice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 public class User {
 
     private String id;
