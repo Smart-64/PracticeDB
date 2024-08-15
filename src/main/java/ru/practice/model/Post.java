@@ -1,28 +1,40 @@
 package ru.practice.model;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Post {
-    private int id;
-    private String author_id;
+    private Integer id;
+    private final User author;
     private String description;
-    private String photo_url;
-    private String creation_date;
+    private String photoUrl;
+    private LocalDate creationDate;
 
-    public int getId() {
+    public Post(User author, String description, String photoUrl) {
+        this.author = author;
+        this.description = description;
+        this.photoUrl = photoUrl;
+        this.creationDate = LocalDate.now();
+    }
+
+    public Post(Integer id, User author, String description, String photoUrl, LocalDate creationDate) {
+        this.id = id;
+        this.author = author;
+        this.description = description;
+        this.photoUrl = photoUrl;
+        this.creationDate = creationDate;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getAuthor_id() {
-        return author_id;
-    }
-
-    public void setAuthor_id(String author_id) {
-        this.author_id = author_id;
+    public User getAuthor_id() {
+        return author;
     }
 
     public String getDescription() {
@@ -34,19 +46,19 @@ public class Post {
     }
 
     public String getPhoto_url() {
-        return photo_url;
+        return photoUrl;
     }
 
-    public void setPhoto_url(String photo_url) {
-        this.photo_url = photo_url;
+    public void setPhoto_url(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
-    public String getCreation_date() {
-        return creation_date;
+    public LocalDate getCreation_date() {
+        return creationDate;
     }
 
-    public void setCreation_date(String creation_date) {
-        this.creation_date = creation_date;
+    public void setCreation_date(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
     @Override
@@ -54,15 +66,15 @@ public class Post {
         if (this == o) return true; //сравнение ссылок
         if (!(o instanceof Post)) return false;
         Post post = (Post) o;// Приведение типа
-        return id == post.id &&
-                Objects.equals(author_id, post.author_id) &&
+        return Objects.equals(id, post.id) &&
+                Objects.equals(author, post.author) &&
                 Objects.equals(description, post.description) &&
-                Objects.equals(photo_url, post.photo_url) &&
-                Objects.equals(creation_date, post.creation_date);
+                Objects.equals(photoUrl, post.photoUrl) &&
+                Objects.equals(creationDate, post.creationDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author_id, description, photo_url, creation_date);
+        return Objects.hash(id, author, description, photoUrl, creationDate);
     }
 }

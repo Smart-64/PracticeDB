@@ -2,9 +2,7 @@ package ru.practice.Impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -31,12 +29,11 @@ public class UserDaoImpl implements UserDao {
         String sql = "SELECT * FROM cat_user WHERE id = ?";
         SqlRowSet userRows = jdbcTemplate.queryForRowSet(sql, id);
         if (userRows.next()) {
-            logger.info("Пользователь с id = '{}' найден, nickname {} ",
-                        userRows.getString("id"), userRows.getString("nickname"));
-            User user = new User();
-            user.setId(userRows.getString("id"));
-            user.setUsername(userRows.getString("username"));
-            user.setNickname(userRows.getString("nickname"));
+            User user = new User(
+                    userRows.getString("id"),
+                    userRows.getString("username"),
+                    userRows.getString("nickname"));
+            logger.info("Пользователь с id = '{}' найден, nickname {} ", user.getId(), user.getNickname());
             return Optional.of(user);
         } else {
             logger.error("Пользователь с id = '{}' не найден. Error.", id);
