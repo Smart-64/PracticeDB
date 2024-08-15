@@ -8,7 +8,7 @@ create table "cat_user"
 (
     id varchar(64) not null, -- идентификатор текстовый, соответствует логину
     username varchar(255) default 'noname cat',
-    nickname varchar(255) 
+    nickname varchar(255)
 ); -- создайте таблицу пользователей Catsgram
 
 create unique index user_id_uindex
@@ -27,6 +27,6 @@ create table cat_post
     photo_url     varchar(1000),
     creation_date timestamp,
     CONSTRAINT fk_post_author
-      FOREIGN KEY(author_id) 
+      FOREIGN KEY(author_id)
       REFERENCES cat_user(id)
 ); -- затем создайте таблицу с постами пользователей — это то место, где будут храниться все котики

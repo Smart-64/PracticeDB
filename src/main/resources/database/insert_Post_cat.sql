@@ -1,0 +1,1 @@
+INSERT INTO public.cat_user (id, username, nickname) VALUES ('puss_in_boots', 'Basileus Felis F.', 'under_wood');
