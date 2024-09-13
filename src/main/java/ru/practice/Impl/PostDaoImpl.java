@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -32,33 +33,19 @@ public class PostDaoImpl implements PostDao {
                 "WHERE u.id = ? ORDER BY p.creation_date DESC;";
         logger.info("SQL запрос: {}", sql);
         logger.info("Отправка запрос в БД");
-        return jdbcTemplate.query(sql, ((resultSet, rowNum) -> (Post) makePost(resultSet, user)), user.getId());
+        return jdbcTemplate.query(sql, ((rs, rowNum) -> makePost(rs, user)), user.getId());
     }
 
-    private Collection<Post> makePost(ResultSet rs, User user) throws SQLException {
-        ArrayList<Post> list = new ArrayList<>();
-        while (rs.next()) {
-            Post post = new Post(
-                    user,
-                    rs.getString("description"),
-                    rs.getString("photo_url"),
-                    rs.getDate("creation_date").toLocalDate()
-            );
-            list.add(post);
-        }
-        return list;
+    private Post makePost(ResultSet rs, User user) throws SQLException {
+        Post post = new Post(
+                rs.getInt("id"),
+                user,
+                rs.getString("description"),
+                rs.getString("photo_url"),
+                rs.getDate("creation_date").toLocalDate()
+        );
+        logger.info("Получен объект Post с полями: id = {}, user = {}, description = {}, photo_url = {}, creation_date = {}",
+                post.getId(), post.getAuthor_id().getNickname(), post.getDescription(), post.getPhoto_url(), post.getCreation_date());
+        return post;
     }
-
-    /*private static class RowMapperImpl implements RowMapper<Post> {
-        @Override
-        public Post mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-
-            Post post = new Post(resultSet.getInt("id"),
-                    resultSet.getObject("author_id", User.class),
-                    resultSet.getString("description"),
-                    resultSet.getString("photo_url"),
-                    resultSet.getDate("creation_date").toLocalDate());
-            return null;
-        }
-    }*/
 }
