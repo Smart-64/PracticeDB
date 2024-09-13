@@ -26,11 +26,5 @@ public class UserController {
         return userService.findUserById(login);
     }
 
-    @GetMapping("/posts/{userId}")
-    public Collection<Post> findPostsByUser(@PathVariable(value = "userId") String userId) {
-        Optional<User> user = getUserById(userId);
-        return userService.findPostsByUser(user.orElse(null));
-    }
-
 
 }

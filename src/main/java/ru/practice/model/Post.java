@@ -10,11 +10,11 @@ public class Post {
     private String photoUrl;
     private LocalDate creationDate;
 
-    public Post(User author, String description, String photoUrl) {
+    public Post(User author, String description, String photoUrl, LocalDate creationDate) {
         this.author = author;
         this.description = description;
         this.photoUrl = photoUrl;
-        this.creationDate = LocalDate.now();
+        this.creationDate = creationDate;
     }
 
     public Post(Integer id, User author, String description, String photoUrl, LocalDate creationDate) {
