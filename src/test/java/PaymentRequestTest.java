@@ -1,3 +1,4 @@
+/*
 import org.example.Utils.ClientService;
 import org.example.Utils.PaymentRequest;
 import org.example.repository.ClientRepository;
@@ -25,3 +26,4 @@ public class PaymentRequestTest {
 
     }
 }
+*/

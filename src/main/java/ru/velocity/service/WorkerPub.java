@@ -29,7 +29,7 @@ public class WorkerPub extends Thread {
     public void run() {
         String workerName = Thread.currentThread().getName() + "-Pub";
         try {
-            String serverURI = "tcp://localhost:9001";
+            String serverURI = "tcp://mosquitto-broker:9001";
             mqttClient = new MqttClient(serverURI, workerName);
 
             MqttConnectOptions options = new MqttConnectOptions();
@@ -37,7 +37,7 @@ public class WorkerPub extends Thread {
             options.setCleanSession(true);
             options.setConnectionTimeout(15);
             options.setUserName("admin");
-            options.setPassword("pass_123".toCharArray());
+            options.setPassword("admin".toCharArray());
 
             mqttClient.connect(options);
             LOGGER.info("Worker {} connected", workerName);

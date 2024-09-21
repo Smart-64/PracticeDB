@@ -1,7 +1,0 @@
-CREATE TABLE IF NOT EXISTS clients
-(
-    id    INTEGER PRIMARY KEY ,
-    mame  VARCHAR(200) NOT NULL ,
-    email VARCHAR(254) NOT NULL ,
-    phone VARCHAR(20)  NOT NULL
-);
