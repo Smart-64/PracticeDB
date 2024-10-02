@@ -28,7 +28,7 @@ public class WorkerSub extends Thread {
     public void run() {
         String workerName = Thread.currentThread().getName() + "-Sub";
         try {
-            String serverURI = "tcp://mosquitto-broker:9001";
+            String serverURI = "tcp://localhost:9001";
             mqttClient = new MqttClient(serverURI, workerName);
 
             MqttConnectOptions options = new MqttConnectOptions();
